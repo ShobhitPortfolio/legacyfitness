@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Legacy Fitness Started</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500&display=swap" rel="stylesheet">
+
+<style>
+body { font-family: 'General Sans', sans-serif; cursor: none; }
+* { cursor: none !important; }
+
+/* Cursor */
+.cursor-ring {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.7);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+/* CARD */
+.card {
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 40px 100px rgba(255,255,255,0.12);
+}
+
+/* WHITE EDGE */
+.lux-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(120deg, rgba(255,255,255,0.35), transparent, rgba(255,255,255,0.25));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* EDGE GLOW (ONLY BORDER) */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 0.6px;
+  background: linear-gradient(120deg, #a855f7, #ffffff, #a855f7);
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.card:hover::before {
+  opacity: 1;
+  animation: borderFlow 2.5s linear infinite;
+}
+
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* INNER GLOW */
+.cursor-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.card:hover .cursor-glow {
+  opacity: 1;
+}
+
+/* TOP LIGHT */
+.glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 30%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+  filter: blur(25px);
+  border-radius: 9999px;
+}
+
+/* TEXT REVEAL ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body class="bg-black text-white">
+
+<!-- Cursor -->
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- HEADER -->
+<header class="w-full flex justify-between items-center px-6 md:px-16 py-6 border-b border-white/10 backdrop-blur-md sticky top-0 z-20">
+  <a href="legacyindex.html" class="text-sm bg-[linear-gradient(144.5deg,white_28%,rgba(0,0,0,0)_115%)] bg-clip-text text-transparent">About Us</a>
+  <a href="contactlegacy.html" class="text-sm bg-[linear-gradient(144.5deg,white_28%,rgba(0,0,0,0)_115%)] bg-clip-text text-transparent">Contact</a>
+</header>
+
+<div class="min-h-screen flex flex-col items-center px-6 py-20 gap-20">
+
+<h1 class="text-4xl md:text-5xl text-center bg-[linear-gradient(144.5deg,white_28%,rgba(0,0,0,0)_115%)] bg-clip-text text-transparent reveal">
+Legacy Fitness - How It All Started
+</h1>
+
+<div class="flex flex-col gap-12 max-w-3xl w-full">
+
+<!-- CARD TEMPLATE -->
+<div class="card relative rounded-2xl p-8 bg-white/5 backdrop-blur-xl reveal">
+<div class="lux-border"></div><div class="cursor-glow"></div><div class="glow"></div>
+<h2 class="text-2xl mb-3 reveal">Stage 1</h2>
+<p class="text-white/70 text-sm reveal">
+We had a lot of ideas from the beginning. Then, after a lot of searching, we found a crowded place on the main road of 3. Then we thought about taking the place and started talking to him and deciding how many floors it would have.
+</p>
+</div>
+
+<div class="card relative rounded-2xl p-8 bg-white/5 backdrop-blur-xl reveal">
+<div class="lux-border"></div><div class="cursor-glow"></div><div class="glow"></div>
+<h2 class="text-2xl mb-3 reveal">Stage 2</h2>
+<p class="text-white/70 text-sm reveal">
+At the age of 21-22, three of us friends decided to build a luxury gym in our area. Initially, we were very scared, not knowing what would happen, but nothing happened as we had imagined.
+</p>
+</div>
+
+<div class="card relative rounded-2xl p-8 bg-white/5 backdrop-blur-xl reveal">
+<div class="lux-border"></div><div class="cursor-glow"></div><div class="glow"></div>
+<h2 class="text-2xl mb-3 reveal">Stage 3</h2>
+<p class="text-white/70 text-sm reveal">
+After looking at the gym’s location, we tried several places to determine the machines, the interior, and how to design them. It took us a month to figure all this out. We never imagined we would design such a large gym in just four months.
+</p>
+</div>
+
+<div class="card relative rounded-2xl p-8 bg-white/5 backdrop-blur-xl reveal">
+<div class="lux-border"></div><div class="cursor-glow"></div><div class="glow"></div>
+<h2 class="text-2xl mb-3 reveal">Stage 4</h2>
+<p class="text-white/70 text-sm reveal">
+Then we thought, while we’re getting ready for the gym, why not try a pre-sale in this crowded place? What we thought was great: within 10 days, we had 100+ pre-sales members, which exceeded our expectations.
+</p>
+</div>
+
+<div class="card relative rounded-2xl p-8 bg-white/5 backdrop-blur-xl reveal">
+<div class="lux-border"></div><div class="cursor-glow"></div><div class="glow"></div>
+<h2 class="text-2xl mb-3 reveal">Stage 5</h2>
+<p class="text-white/70 text-sm reveal">
+Even before we started, our families were very scared that our children had placed all their hopes on us, and that in this short time, their future would become even brighter with this gym.
+</p>
+</div>
+
+<div class="card relative rounded-2xl p-8 bg-white/5 backdrop-blur-xl reveal">
+<div class="lux-border"></div><div class="cursor-glow"></div><div class="glow"></div>
+<h2 class="text-2xl mb-3 reveal">Stage 6</h2>
+<p class="text-white/70 text-sm reveal">
+The interior was much different than we had imagined, so we designed it. Then everything came down to our machines. Since we were building a luxurious gym, the machines needed to be top-class rated. Then we decided to buy all the machines from a wellness gym. It took a month for all our machines to arrive. All the machines are imported from China.
+</p>
+</div>
+
+<div class="card relative rounded-2xl p-8 bg-white/5 backdrop-blur-xl reveal">
+<div class="lux-border"></div><div class="cursor-glow"></div><div class="glow"></div>
+<h2 class="text-2xl mb-3 reveal">Stage 7</h2>
+<p class="text-white/70 text-sm reveal">
+At the end, it took us 1.50 crore rupees to build this gym, but it has become the most luxurious gym in our surrounding area. Today, our gym has 400+ members and everything is running smoothly.
+</p>
+</div>
+
+</div>
+</div>
+
+<script>
+// TEXT REVEAL (runs once)
+window.addEventListener('load', () => {
+  const reveals = document.querySelectorAll('.reveal');
+
+  reveals.forEach((el, i) => {
+    setTimeout(() => {
+      el.classList.add('show');
+    }, i * 120);
+  });
+});
+
+// Tilt + glow
+document.querySelectorAll('.card').forEach(card => {
+  const glow = card.querySelector('.cursor-glow');
+
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const px = x / rect.width;
+    const py = y / rect.height;
+
+    const rotateX = (py - 0.5) * 8;
+    const rotateY = (px - 0.5) * 8;
+
+    const dist = Math.sqrt((px - 0.5)**2 + (py - 0.5)**2);
+    const scale = 1 - dist * 0.05;
+
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
+
+    glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.18), transparent 40%)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
+    glow.style.background = 'none';
+  });
+});
+
+// Cursor
+const ring = document.getElementById('cursorRing');
+window.addEventListener('mousemove', e => {
+  ring.style.left = e.clientX + 'px';
+  ring.style.top = e.clientY + 'px';
+});
+</script>
+
+</body>
+</html>
