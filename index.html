@@ -154,7 +154,7 @@ body { font-family: 'General Sans', sans-serif; cursor: none; }
 
 </header>
   
-  <!-- MARQUEE JOIN NOW -->
+<!-- CLEAN SMOOTH MARQUEE -->
 <div style="
 width:100%;
 overflow:hidden;
@@ -164,23 +164,35 @@ background:rgba(255,255,255,0.03);
 backdrop-filter:blur(10px);
 ">
 
-  <div style="
-  display:flex;
-  white-space:nowrap;
-  animation:scroll 18s linear infinite;
-  font-size:18px;
-  font-weight:500;
-  padding:12px 0;
-  ">
+  <div class="marquee-track">
 
-    🔥 JOIN LEGACY FITNESS NOW • BUILD YOUR DREAM BODY • NO EXCUSES • START TODAY • TRANSFORM YOURSELF • 🔥 JOIN LEGACY FITNESS NOW • BUILD YOUR DREAM BODY • NO EXCUSES • START TODAY •
+    <span class="marquee-text">
+      Join Legacy Fitness • Build Strength • Stay Consistent • Train Smart •
+    </span>
+
+    <span class="marquee-text">
+      Join Legacy Fitness • Build Strength • Stay Consistent • Train Smart •
+    </span>
 
   </div>
-
 </div>
 
 <style>
-@keyframes scroll {
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+}
+
+.marquee-text {
+  white-space: nowrap;
+  padding-right: 60px;
+  font-size: 16px;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 1px;
+}
+
+@keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
