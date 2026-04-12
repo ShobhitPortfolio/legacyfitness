@@ -154,7 +154,6 @@ body { font-family: 'General Sans', sans-serif; cursor: none; }
 
 </header>
   
-<!-- PERFECT MARQUEE -->
 <div style="
 width:100%;
 overflow:hidden;
@@ -164,52 +163,41 @@ background:rgba(255,255,255,0.03);
 backdrop-filter:blur(10px);
 ">
 
-  <div class="marquee">
-
-    <div class="marquee-content">
+  <div id="marqueeTrack" style="
+    display:flex;
+    white-space:nowrap;
+    font-size:16px;
+    color:rgba(255,255,255,0.8);
+    letter-spacing:1px;
+  ">
+    <span style="padding-right:80px;">
       Join Legacy Fitness • Build Strength • Stay Consistent • Train Smart •
-    </div>
-
-    <div class="marquee-content">
-      Join Legacy Fitness • Build Strength • Stay Consistent • Train Smart •
-    </div>
-
-    <div class="marquee-content">
-      Join Legacy Fitness • Build Strength • Stay Consistent • Train Smart •
-    </div>
-
-    <div class="marquee-content">
-      Join Legacy Fitness • Build Strength • Stay Consistent • Train Smart •
-    </div>
-
+    </span>
   </div>
 
 </div>
 
-<style>
-.marquee {
-  display: flex;
-  width: fit-content;
-  animation: marqueeScroll 20s linear infinite;
+<script>
+const track = document.getElementById("marqueeTrack");
+
+// Duplicate content until it's wide enough
+while (track.scrollWidth < window.innerWidth * 2) {
+  track.innerHTML += track.innerHTML;
 }
 
-.marquee-content {
-  white-space: nowrap;
-  padding-right: 80px;
-  font-size: 16px;
-  color: rgba(255,255,255,0.8);
-  letter-spacing: 1px;
+let pos = 0;
+
+function animate() {
+  pos -= 0.5; // speed (lower = smoother)
+  if (Math.abs(pos) >= track.scrollWidth / 2) {
+    pos = 0; // seamless reset
+  }
+  track.style.transform = `translateX(${pos}px)`;
+  requestAnimationFrame(animate);
 }
 
-@keyframes marqueeScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-</style>
+animate();
+</script>
 
   <!-- IMAGE SLIDER (PASTE ANYWHERE IN BODY) -->
 <div style="width:100%;max-width:1000px;margin:40px auto;padding:0 10px;">
