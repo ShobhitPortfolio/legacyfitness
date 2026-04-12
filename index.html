@@ -154,7 +154,7 @@ body { font-family: 'General Sans', sans-serif; cursor: none; }
 
 </header>
   
-<!-- CLEAN SMOOTH MARQUEE -->
+<!-- PERFECT MARQUEE -->
 <div style="
 width:100%;
 overflow:hidden;
@@ -164,37 +164,42 @@ background:rgba(255,255,255,0.03);
 backdrop-filter:blur(10px);
 ">
 
-  <div class="marquee-track">
+  <div class="marquee">
 
-    <span class="marquee-text">
+    <div class="marquee-content">
       Join Legacy Fitness • Build Strength • Stay Consistent • Train Smart •
-    </span>
+    </div>
 
-    <span class="marquee-text">
+    <div class="marquee-content">
       Join Legacy Fitness • Build Strength • Stay Consistent • Train Smart •
-    </span>
+    </div>
 
   </div>
+
 </div>
 
 <style>
-.marquee-track {
+.marquee {
   display: flex;
-  width: max-content;
-  animation: marquee 18s linear infinite;
+  width: fit-content;
+  animation: marqueeScroll 20s linear infinite;
 }
 
-.marquee-text {
+.marquee-content {
   white-space: nowrap;
-  padding-right: 60px;
+  padding-right: 80px;
   font-size: 16px;
   color: rgba(255,255,255,0.8);
   letter-spacing: 1px;
 }
 
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 </style>
 
