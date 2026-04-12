@@ -133,6 +133,7 @@ body { font-family: 'General Sans', sans-serif; cursor: none; }
 }
 </style>
 </head>
+ 
 
 <body class="bg-black text-white">
 
@@ -146,7 +147,7 @@ body { font-family: 'General Sans', sans-serif; cursor: none; }
      Contact
   </a>
 
-  <a href="legacy.html"
+  <a href="legacyfitness.html"
      class="text-sm font-medium bg-[linear-gradient(144.5deg,white_28%,rgba(0,0,0,0)_115%)] bg-clip-text text-transparent">
      Legacy Fitness
   </a>
@@ -201,8 +202,70 @@ body { font-family: 'General Sans', sans-serif; cursor: none; }
 
 
 </div>
+<!-- IMAGE SLIDER (PASTE ANYWHERE IN BODY) -->
+<div style="width:100%;max-width:1000px;margin:40px auto;padding:0 10px;">
+  
+  <div style="position:relative;border-radius:25px;overflow:hidden;background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);box-shadow:0 20px 80px rgba(0,0,0,0.6);">
+    
+    <!-- Slides -->
+    <div id="slides" style="display:flex;transition:transform 0.7s ease;">
+      <img src="gym1.png" style="width:100%;min-width:100%;height:300px;object-fit:cover;">
+      <img src="gym2.png" style="width:100%;min-width:100%;height:300px;object-fit:cover;">
+      <img src="gym3.png" style="width:100%;min-width:100%;height:300px;object-fit:cover;">
+    </div>
+
+    <!-- Dots -->
+    <div id="dots" style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;"></div>
+
+  </div>
+</div>
 
 <script>
+(function(){
+  const slides = document.getElementById("slides");
+  const images = slides.querySelectorAll("img");
+  const dotsContainer = document.getElementById("dots");
+
+  let index = 0;
+
+  // Auto create dots
+  images.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.style.width = "8px";
+    dot.style.height = "8px";
+    dot.style.borderRadius = "50%";
+    dot.style.background = "rgba(255,255,255,0.5)";
+    dot.style.cursor = "pointer";
+    dotsContainer.appendChild(dot);
+
+    dot.addEventListener("click", () => {
+      index = i;
+      updateSlider();
+    });
+  });
+
+  const dots = dotsContainer.children;
+
+  function updateSlider() {
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    for (let d of dots) d.style.background = "rgba(255,255,255,0.5)";
+    dots[index].style.background = "white";
+  }
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    updateSlider();
+  }, 5000);
+
+  updateSlider();
+})();
+</script>
+
+<script>
+ 
+
+ 
+
 
 // Tilt
 document.querySelectorAll('.card').forEach(card => {
