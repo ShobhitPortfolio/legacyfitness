@@ -163,7 +163,7 @@ background:rgba(255,255,255,0.03);
 backdrop-filter:blur(10px);
 ">
 
-  <div id="marqueeTrack" style="
+  <div id="track" style="
     display:flex;
     white-space:nowrap;
     font-size:16px;
@@ -171,32 +171,34 @@ backdrop-filter:blur(10px);
     letter-spacing:1px;
   ">
     <span style="padding-right:80px;">
-      Join Legacy Fitness • Build Strength • Stay Consistent • Train Smart •
+      Legacy Fitness • Strength • Discipline • Consistency •
     </span>
   </div>
 
 </div>
 
 <script>
-const track = document.getElementById("marqueeTrack");
+const track = document.getElementById("track");
 
-// Duplicate content until it's wide enough
-while (track.scrollWidth < window.innerWidth * 2) {
-  track.innerHTML += track.innerHTML;
-}
+// Clone content multiple times (important)
+const original = track.innerHTML;
+track.innerHTML += original + original + original;
 
-let pos = 0;
+let x = 0;
 
-function animate() {
-  pos -= 0.5; // speed (lower = smoother)
-  if (Math.abs(pos) >= track.scrollWidth / 2) {
-    pos = 0; // seamless reset
+function smoothScroll() {
+  x -= 0.4; // speed
+
+  // reset silently (you won't notice)
+  if (x <= -track.scrollWidth / 3) {
+    x = 0;
   }
-  track.style.transform = `translateX(${pos}px)`;
-  requestAnimationFrame(animate);
+
+  track.style.transform = `translateX(${x}px)`;
+  requestAnimationFrame(smoothScroll);
 }
 
-animate();
+smoothScroll();
 </script>
 
   <!-- IMAGE SLIDER (PASTE ANYWHERE IN BODY) -->
